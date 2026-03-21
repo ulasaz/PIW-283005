@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a8f02ecc66.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Add new game</h3>
+        <form class="filters-form">
+            <div class="filter-group">
+                <label>Price (pln)</label>
+                <div class="price-inputs">
+                    <input type="number" placeholder="eg. 50" min="0">
+                </div>
+            </div>
+    
+            <div class="filter-group">
+                <label>Type of Game</label>
+                <input type="text" placeholder="eg. Card Games "">
+            </div>
+    
+            <div class="filter-group">
+                <label>Number of players</label>
+                <input type="number" placeholder="eg. 4" min="1">
+            </div>
+    
+            <div class="filter-group">
+                <label>Game Time</label>
+                <select>
+                    <option value="">Any</option>
+                    <option value="short">Up to 30 min</option>
+                    <option value="medium">30 - 60 min</option>
+                    <option value="long">More then 60 min</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label>Publishing house</label>
+                <input type="text" placeholder="eg.Atlas Games  "">
+            </div>
+            <label class="filter-btn">
+                Add photo
+                <input type="file" accept="image/png, image/jpeg">
+            </label>
+            <button type="submit" class="filter-btn">Add game</button>
+        </form>
+    </div>
+</body>
+</html>

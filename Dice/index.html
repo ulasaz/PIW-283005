@@ -2,9 +2,190 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Dice</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a8f02ecc66.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-$END$
+    <div class="header">
+        <div class="logo">
+            <H2>Dice</H2>
+        </div>
+        
+        <div> 
+            <ul id="navbar">
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="aboutUs.html">About us</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            </ul>
+        </div>
+        <div> 
+            <ul id="nav-actions">
+                <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <li><button>Sign in</button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="hero-banner">
+    </div>
+    <div class="main">
+        <div class="main-top-bar">
+            <h2>Give all you need</h2>
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search on Dice...">
+                <button>Search</button>
+            </div>
+        </div>
+        <div class="main-columns">
+            <div class="sidebar">
+                <h3>Filters</h3>
+                <form class="filters-form">
+
+                    <div class="filter-group">
+                        <label>Price (pln)</label>
+                        <div class="price-inputs">
+                            <input type="number" placeholder="From" min="0">
+                            <input type="number" placeholder="To" min="0">
+                        </div>
+                    </div>
+            
+                    <div class="filter-group">
+                        <label>Game type</label>
+                        <select>
+                            <option value="">All</option>
+                            <option value="strategy">Strategy</option>
+                            <option value="party">Party</option>
+                            <option value="family">Family</option>
+                            <option value="card">Card</option>
+                        </select>
+                    </div>
+            
+                    <div class="filter-group">
+                        <label>Number of players</label>
+                        <input type="number" placeholder="eg. 4" min="1">
+                    </div>
+            
+                    <div class="filter-group">
+                        <label>Game time</label>
+                        <select>
+                            <option value="">Any</option>
+                            <option value="short">Up to 30 min</option>
+                            <option value="medium">30 - 60 min</option>
+                            <option value="long">More then 60 min</option>
+                        </select>
+                    </div>
+            
+                    <div class="filter-group">
+                        <label>Publishing house</label>
+                        <select>
+                            <option value="">All</option>
+                            <option value="rebel">Rebel</option>
+                            <option value="atlas games">Atlas Games</option>
+                            <option value="portal">Portal Games</option>
+                        </select>
+                    </div>
+            
+                    <button type="submit" class="filter-btn">Apply filters</button>
+                    <a href="add-item.html" class="filter-btn">Add item</a>
+            
+                </form>
+            </div>
+        
+            <section class="games-grid">
+            
+            <div class="product-card" id="p1">
+                <a href="index2.html">
+                    <img src="/img/products/p1.webp" alt="Monopoly">
+                </a>
+                
+                <div class="des">
+                    <span>Monopoly</span>
+                    <h5>All family</h5>
+                    <div class="star-price-row">
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <h5>5.0 (1.2k reviews)</h5>
+                        </div>
+                        <h4>50 PLN</h4>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            </div>
+            <div class="product-card" id="p2">
+                <a href="index2.html">
+                    <img src="/img/products/p2.webp" alt="Monopoly">
+                </a>
+                
+                <div class="des">
+                    <span>Hitster</span>
+                    <h5>All family</h5>
+                    <div class="star-price-row">
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <h5>4.8 (201 reviews)</h5>
+                        </div>
+                        <h4>50 PLN</h4>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            </div>
+            <div class="product-card" id="p3">
+                <a href="index2.html">
+                    <img src="/img/products/p3.webp" alt="Monopoly">
+                </a>
+                
+                <div class="des">
+                    <span>SpyGuy</span>
+                    <h5>Kids</h5>
+                    <div class="star-price-row">
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <h5>5.0 (2k reviews)</h5>
+                        </div>
+                        <h4>50 PLN</h4>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            </div>
+            <div class="product-card" id="p4">
+                <a href="index2.html">
+                    <img src="/img/products/p4.webp" alt="Monopoly">
+                </a>
+                
+                <div class="des">
+                    <span>Stitch</span>
+                    <h5>Kids</h5>
+                    <div class="star-price-row">
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <h5>5.0 (1.2k reviews)</h5>
+                        </div>
+                        <h4>50 PLN</h4>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="buy-button">Buy Now</button>
+                    <button class="add-to-cart">Add to cart</button>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
 </body>
 </html>
