@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a8f02ecc66.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="delete-modal" class="modal-dialog modal-dialog-centered">
+        <div class="modal-header">
+            <h2>Are you sure ?</h2>
+        </div>
+        <div class="modal-content">
+            <p>You want to delete this task from the list ?</p>
+            <span id="modalTaskText" class="fw-bold text-danger"></span>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="modalCancelBtn" >Leave</button>
+            <button type="button" class="btn btn-danger" id="modalDeleteBtn">Delete</button>
+        </div>
+    </div>
+    </div>
+    
+        <div class="container mt-5" style="max-width: 500px;">
+                <div class="add-item-bar input-group mb-4">
+                    <input type="text" class="form-control" id="taskInput" placeholder="Add new item">
+                    
+                    <select id="listSelector" class="form-select" style="max-width: 140px;">
+                        <option value="ul-urgent">Urgent</option>
+                        <option value="ul-regular" selected>Regular</option>
+                        <option value="ul-optional">Optional</option>
+                    </select>
+    
+                    <button id="addBtn" class="btn btn-outline-primary">Add</button>
+                </div>
+        
+                <div class="lists-container">
+                    
+                    <button class="btn btn-outline-danger w-100 mb-2 text-start " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-urgent">
+                        Urgent ▼
+                    </button>
+                    <div class="collapse show" id="collapse-urgent">
+                        <ul class="list-group mb-3" id="ul-urgent"></ul>
+                    </div>
+    
+                    <button class="btn btn-outline-primary w-100 mb-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-regular">
+                        Regular ▼
+                    </button>
+                    <div class="collapse show" id="collapse-regular">
+                        <ul class="list-group mb-3" id="ul-regular"></ul>
+                    </div>
+    
+                    <button class="btn btn-outline-secondary w-100 mb-2 text-start " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-optional">
+                        Optional ▼
+                    </button>
+                    <div class="collapse show" id="collapse-optional">
+                        <ul class="list-group mb-3" id="ul-optional"></ul>
+                    </div>
+    
+                </div>
+            </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
