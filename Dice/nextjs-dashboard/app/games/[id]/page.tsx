@@ -19,7 +19,7 @@ export default async function GameDetailsPage({
   if (!game) {
     return (
       <main className="p-8 text-center">
-        <h1 className="text-2xl font-bold">Gra не найдена</h1>
+        <h1 className="text-2xl font-bold">Game not found</h1>
         <Link href="/" className="text-blue-600 hover:underline">Return to stroe</Link>
       </main>
     );
