@@ -62,9 +62,6 @@ export default async function Home(props: {
             <div><Filter /></div>
             
             <div className="pt-4 space-y-4">
-              <button className="w-full bg-black text-white text-sm font-bold py-3.5 rounded-full hover:bg-gray-800 transition">
-                Apply filters
-              </button>
               <a href="/add" className="w-full block text-center bg-black text-white text-sm font-bold py-3.5 rounded-full hover:bg-gray-800 transition">
                 Add item
               </a>
