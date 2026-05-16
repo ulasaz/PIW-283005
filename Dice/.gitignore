@@ -1,24 +1,20 @@
-# AI Assistant files
+
 .agents/
 .agent*
 .cline/
 .cursor/
 
-# Firebase
 .firebase/
 firebase-debug.log
 
-# Next.js & Node (на всякий случай, проверьте, что они есть)
 node_modules/
 .next/
 .env
 .env.local
 
-# AI Markdown logs
 **/genkit_*.md
 **/schemantic.md
 **/SKILL.md
 
-# Игнорировать все markdown файлы от ИИ
 **/*.md
 !README.md

@@ -88,7 +88,7 @@ export default function MyCartPage() {
                 {game.imageUrl ? (
                   <img src={game.imageUrl} alt={game.title} className="w-full h-full object-contain p-2" />
                 ) : (
-                  <span className="text-gray-400">🎲 Brak zdjęcia</span>
+                  <span className="text-gray-400">No image</span>
                 )}
               </div>
                   

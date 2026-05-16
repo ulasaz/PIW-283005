@@ -42,7 +42,7 @@ export default function MyGamesPage() {
     }
   };
 
-  const handleRemoveFromCart = async (itemId: string) => {
+  const handleDeleteGame = async (itemId: string) => {
     try {
 
       await deleteDoc(doc(db, "games", itemId));
@@ -107,7 +107,7 @@ export default function MyGamesPage() {
                     <button 
                         onClick={(e) => {
                         e.preventDefault();
-                        handleRemoveFromCart(game.id);
+                        handleDeleteGame(game.id);
                         }}
                         className="bg-red-50 text-red-600 text-sm font-bold py-2.5 rounded-full w-full text-center hover:bg-red-100 transition-colors"
                     >
