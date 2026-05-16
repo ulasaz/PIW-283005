@@ -6,7 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { collection, query, where, getDocs, deleteDoc, doc } from "firebase/firestore";
 import Link from "next/link";
 
-export default function MyCartPage() {
+export default function MyGamesPage() {
   const [games, setGames] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -82,7 +82,7 @@ export default function MyCartPage() {
                 {game.imageUrl ? (
                   <img src={game.imageUrl} alt={game.title} className="w-full h-full object-contain p-2" />
                 ) : (
-                  <span className="text-gray-400">🎲 Brak zdjęcia</span>
+                  <span className="text-gray-400">No image</span>
                 )}
               </div>
                   

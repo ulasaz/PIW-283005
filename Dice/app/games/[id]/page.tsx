@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams, usePathname } from 'next/navigation';
-import Link from 'next/link';
-import AddToCartButton from '@/app/ui/add-to-cart-button';
+import { usePathname } from 'next/navigation';
+import BuyButton from '@/app/ui/buy-button';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/app/lib/firebase';
+import Link from 'next/link';
 
 export default function GameDetailsPage() {
   const pathname = usePathname(); 
@@ -27,7 +27,7 @@ export default function GameDetailsPage() {
           setGame(null);
         }
       } catch (error) {
-        console.error("Ошибка загрузки игры:", error);
+        console.error('Error loading game', error);
       } finally {
         setLoading(false);
       }
@@ -37,7 +37,7 @@ export default function GameDetailsPage() {
   }, [gameId]);
 
   if (loading) {
-    return <div className="p-32 text-center text-xl font-bold animate-pulse text-gray-400">Ładowanie gry...</div>;
+    return <div className="p-32 text-center text-xl font-bold animate-pulse text-gray-400">Loading game...</div>;
   }
 
   if (!game) {
@@ -76,7 +76,7 @@ export default function GameDetailsPage() {
           {mainImage ? (
             <img src={mainImage} alt={game.title} className="w-full h-auto object-contain max-h-[450px]" />
           ) : (
-            <div className="text-gray-300 text-xl font-medium">Brak zdjęcia</div>
+            <div className="text-gray-300 text-xl font-medium">No image</div>
           )}
         </div>
 
@@ -88,7 +88,7 @@ export default function GameDetailsPage() {
 
           <div className="flex items-center gap-6 mb-8 text-lg font-medium text-gray-600">
             <div className="flex items-center gap-2">
-              <span className="text-black">👥</span> {minPlayers}-{maxPlayers} os.
+              <span className="text-black">👥</span> {minPlayers}-{maxPlayers} players
             </div>
             <div className="flex items-center gap-2">
               <span className="text-black">⏱️</span> {playTime} min
@@ -96,7 +96,7 @@ export default function GameDetailsPage() {
           </div>
 
           <div className="mb-10">
-            <h3 className="text-lg font-bold text-black mb-4">O grze:</h3>
+            <h3 className="text-lg font-bold text-black mb-4">About the game:</h3>
             <div className="space-y-4">
               {descriptionBlocks.map((text: string, index: number) => (
                 <p key={index} className="text-gray-600 leading-relaxed">{text}</p>
@@ -116,10 +116,7 @@ export default function GameDetailsPage() {
           </div>
 
           <div className="flex gap-4 mt-10">
-            <button className="flex-1 bg-black text-white py-2 rounded-full text-m font-bold hover:bg-gray-800 transition shadow-lg">
-              Buy Now
-            </button>
-            <AddToCartButton gameId={game.id} title={game.title} price={Number(price)} />
+          <BuyButton gameId={game.id} isAvailable={game.isAvailable} />
           </div>
         </div>
       </div>

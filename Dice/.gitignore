@@ -18,3 +18,7 @@ node_modules/
 **/genkit_*.md
 **/schemantic.md
 **/SKILL.md
+
+# Игнорировать все markdown файлы от ИИ
+**/*.md
+!README.md

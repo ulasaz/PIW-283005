@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import EditForm from '@/app/ui/edit-form';
 import { doc, getDoc } from 'firebase/firestore';
@@ -46,7 +45,7 @@ export default function EditGamePage() {
   if (!game) {
     return (
       <main className="p-8 text-center pt-32">
-        <h1 className="text-2xl font-bold">Gra nie znaleziona</h1>
+        <h1 className="text-2xl font-bold">Game not found</h1>
       </main>
     );
   }

@@ -19,7 +19,7 @@ export default function Search() {
 
   return (
     <div className="w-full relative">
-      <label htmlFor="search" className="sr-only">Szukaj gry</label>
+      <label htmlFor="search" className="sr-only">Search game</label>
       
       <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
         <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

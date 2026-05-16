@@ -51,7 +51,7 @@ export default function Filter() {
           onChange={(e) => handleFilterChange('type', e.target.value)}
           defaultValue={searchParams.get('type')?.toString() || 'all'}
         >
-          <option value="all">Wszystkie kategorie</option>
+          <option value="all">All categories</option>
           <option value="ekonomiczna">Ekonomiczna</option>
           <option value="przygodowa">Przygodowa</option>
           <option value="rodzinna">Rodzinna</option>
@@ -70,7 +70,7 @@ export default function Filter() {
           id="players"
           min="1"
           max="12"
-          placeholder="np. 4"
+          placeholder="e.g. 4"
           className="w-full rounded-lg border border-gray-300 py-2.5 px-4 outline-none focus:border-black focus:ring-1 focus:ring-black bg-white transition-all text-sm"
           onChange={(e) => handleFilterChange('players', e.target.value)}
           defaultValue={searchParams.get('players')?.toString()}
@@ -85,7 +85,7 @@ export default function Filter() {
           onChange={(e) => handleFilterChange('publisher', e.target.value)}
           defaultValue={searchParams.get('publisher')?.toString() || 'all'}
         >
-          <option value="all">Wszyscy wydawcy</option>
+          <option value="all">All publishers</option>
           <option value="Rebel">Rebel</option>
           <option value="Galakta">Galakta</option>
           <option value="Lacerta">Lacerta</option>

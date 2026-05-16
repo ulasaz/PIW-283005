@@ -74,16 +74,6 @@ export default function Navbar() {
                 My Cart
               </Link>
             </li>
-            <li>
-              <Link href="/services" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 transition-colors md:p-0">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-gray-500 transition-colors md:p-0">
-                Contact
-              </Link>
-            </li>
           </ul>
         </div>
         

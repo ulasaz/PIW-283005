@@ -6,7 +6,6 @@ import {
   signInWithPopup, 
   GoogleAuthProvider, 
   signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword 
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -55,7 +54,7 @@ export default function LoginPage() {
 
         <div className="flex items-center mb-6">
           <div className="flex-grow border-t border-gray-200"></div>
-          <span className="px-3 text-gray-400 text-sm">или</span>
+          <span className="px-3 text-gray-400 text-sm">or</span>
           <div className="flex-grow border-t border-gray-200"></div>
         </div>
 

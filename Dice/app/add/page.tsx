@@ -18,6 +18,7 @@ export default function AddGamePage() {
     const [isExpansion, setExpansion] = useState(false);
     const [time, setTime] = useState(0);
     const [price, setPrice] = useState(0);
+    const [imageUrl, setImageUrl] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -41,7 +42,8 @@ export default function AddGamePage() {
       time: time,
       isExpansion: isExpansion,
       isAvailable: true,
-      createdAt: new Date()
+      createdAt: new Date(),
+      imageUrl: imageUrl,
     };
 
     try{
@@ -49,7 +51,7 @@ export default function AddGamePage() {
       alert("Game was added!");
     }
     catch (error) {
-      console.error("Ошибка при загрузке корзины:", error);
+      console.error('Error while adding the game', error);
     }
     finally{
       router.push("/");
@@ -95,7 +97,7 @@ export default function AddGamePage() {
           </div>
           <div>
             <label className="block text-sm font-bold text-black mb-2">Publishing house</label>
-            <input required type="text" className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm" placeholder="np. Rebel" 
+            <input required type="text" className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm" placeholder="e.g. Rebel" 
               value={publisher} 
               onChange={(e) => setPublisher(e.target.value)}
             />
@@ -146,12 +148,21 @@ export default function AddGamePage() {
         </div>
 
         <div>
+          <label className="block text-sm font-bold text-black mb-2">Image URL (optional)</label>
+          <input type="url" className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm"
+            placeholder="https://..."
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+          />
+        </div>
+
+        <div>
           <label className="block text-sm font-bold text-black mb-2">Description</label>
           <textarea 
             required 
             rows={4} 
             className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm resize-none" 
-            placeholder="Opisz zasady gry..."
+            placeholder="Describe the game rules..."
             value={description} 
             onChange={(e) => setDescription(e.target.value)}
           />
