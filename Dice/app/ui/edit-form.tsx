@@ -21,10 +21,10 @@ export default function EditForm({ game }: { game: BoardGame }) {
     Array.isArray(game.description) ? game.description.join('\n') : (game.description || '')
   );
   const [saving, setSaving] = useState(false);
-  const titleRef = useRef<HTMLInputElement>(null);
+  const refDescription = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    titleRef.current?.focus();
+    refDescription.current?.focus();
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -60,7 +60,7 @@ export default function EditForm({ game }: { game: BoardGame }) {
 
       <div>
         <label className="block text-sm font-bold text-black mb-2">Title</label>
-        <input ref={titleRef} required type="text" value={title} onChange={(e) => setTitle(e.target.value)} className={inputCls} />
+        <input required type="text" value={title} onChange={(e) => setTitle(e.target.value)} className={inputCls} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -110,7 +110,7 @@ export default function EditForm({ game }: { game: BoardGame }) {
 
       <div>
         <label className="block text-sm font-bold text-black mb-2">Description</label>
-        <textarea required rows={5} value={description} onChange={(e) => setDescription(e.target.value)} className={inputCls + ' resize-none'} />
+        <textarea ref={refDescription} required rows={5} value={description} onChange={(e) => setDescription(e.target.value)} className={inputCls + ' resize-none'} />
       </div>
 
       <button type="submit" disabled={saving} className="mt-4 w-full bg-black text-white text-lg font-bold py-4 rounded-full hover:bg-gray-800 transition disabled:opacity-50">

@@ -19,10 +19,10 @@ export default function AddGamePage() {
     const [time, setTime] = useState(0);
     const [price, setPrice] = useState(0);
     const [imageUrl, setImageUrl] = useState("");
-    const titleRef = useRef<HTMLInputElement>(null);
+    const refDescription = useRef<HTMLTextAreaElement>(null);
     
     useEffect(() => {
-      titleRef.current?.focus();
+      refDescription.current?.focus();
     }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -78,7 +78,6 @@ export default function AddGamePage() {
         <div>
           <label className="block text-sm font-bold text-black mb-2">Title</label>
           <input 
-          ref={titleRef}
           required type="text" className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm" placeholder="ex. Monopoly" 
               value={title} 
               onChange={(e) => setTitle(e.target.value)}
@@ -166,6 +165,7 @@ export default function AddGamePage() {
         <div>
           <label className="block text-sm font-bold text-black mb-2">Description</label>
           <textarea 
+            ref={refDescription}
             required 
             rows={4} 
             className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm resize-none" 
