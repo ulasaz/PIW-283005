@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import BuyButton from './buy-button';
+import AddToCartButton from './add-to-cart-button';
 
 export default function GameCard({ game }: { game: any }) {
   const mainImage =
@@ -36,6 +37,12 @@ export default function GameCard({ game }: { game: any }) {
 
       <div className="flex gap-2 mt-2">
         <BuyButton gameId={game.id} isAvailable={game.isAvailable} />
+        <AddToCartButton
+          gameId={game.id}
+          title={game.title}
+          price={Number(price)}
+          imageUrl={mainImage}
+        />
       </div>
     </div>
   );

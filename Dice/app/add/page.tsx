@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; 
 import { collection, addDoc } from 'firebase/firestore'; 
 import { auth, db } from '../lib/firebase';
@@ -19,6 +19,11 @@ export default function AddGamePage() {
     const [time, setTime] = useState(0);
     const [price, setPrice] = useState(0);
     const [imageUrl, setImageUrl] = useState("");
+    const titleRef = useRef<HTMLInputElement>(null);
+    
+    useEffect(() => {
+      titleRef.current?.focus();
+    }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -72,7 +77,9 @@ export default function AddGamePage() {
         
         <div>
           <label className="block text-sm font-bold text-black mb-2">Title</label>
-          <input required type="text" className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm" placeholder="ex. Monopoly" 
+          <input 
+          ref={titleRef}
+          required type="text" className="w-full rounded-xl border border-gray-300 py-3.5 px-4 outline-none focus:border-black focus:ring-2 focus:ring-black bg-gray-50 focus:bg-white transition-all text-sm" placeholder="ex. Monopoly" 
               value={title} 
               onChange={(e) => setTitle(e.target.value)}
           />

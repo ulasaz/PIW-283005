@@ -1,5 +1,6 @@
 import '@/app/ui/global.css';
 import Navbar from '@/app/ui/navbar';
+import { CartProvider } from '@/app/lib/CartContext';
 
 export default function RootLayout({
   children,
@@ -9,8 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased bg-gray-50 min-h-screen pt-20" suppressHydrationWarning>
-        <Navbar /> 
-        {children} 
+        <CartProvider>
+          <Navbar />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

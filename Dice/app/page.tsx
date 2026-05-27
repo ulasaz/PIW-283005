@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Search from '@/app/ui/search';
 import Filter from '@/app/ui/filter';
@@ -41,21 +41,21 @@ function HomeContent() {
   const maxPriceQuery = parseFloat(searchParams.get('max_price') || '0');
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
 
-  const filteredGames = gamesFromDb.filter((game) => {
-    if (!game.title) return false;
-    if (game.isAvailable === false) return false;
-
-    const matchesSearch = game.title.toLowerCase().includes(searchQuery);
-    const matchesType = typeQuery ? game.type === typeQuery : true;
-    const matchesPlayers = playersQuery > 0 
-      ? (playersQuery >= (game.minPlayers || 0) && playersQuery <= (game.maxPlayers || 99)) 
-      : true;
-    const matchesPublisher = publisherQuery ? game.publisher === publisherQuery : true;
-    const matchesMinPrice = minPriceQuery > 0 ? (game.price || 0) >= minPriceQuery : true;
-    const matchesMaxPrice = maxPriceQuery > 0 ? (game.price || 0) <= maxPriceQuery : true;
-
-    return matchesSearch && matchesType && matchesPlayers && matchesPublisher && matchesMinPrice && matchesMaxPrice;
-  });
+  const filteredGames = useMemo(() => gamesFromDb.filter((game) => {
+      if (!game.title) return false;
+      if (game.isAvailable === false) return false;
+  
+      const matchesSearch = game.title.toLowerCase().includes(searchQuery);
+      const matchesType = typeQuery ? game.type === typeQuery : true;
+      const matchesPlayers = playersQuery > 0 
+        ? (playersQuery >= (game.minPlayers || 0) && playersQuery <= (game.maxPlayers || 99)) 
+        : true;
+      const matchesPublisher = publisherQuery ? game.publisher === publisherQuery : true;
+      const matchesMinPrice = minPriceQuery > 0 ? (game.price || 0) >= minPriceQuery : true;
+      const matchesMaxPrice = maxPriceQuery > 0 ? (game.price || 0) <= maxPriceQuery : true;
+  
+      return matchesSearch && matchesType && matchesPlayers && matchesPublisher && matchesMinPrice && matchesMaxPrice;
+  }), [gamesFromDb, searchQuery, typeQuery, playersQuery, publisherQuery, minPriceQuery, maxPriceQuery]);
 
   const ITEMS_PER_PAGE = 6;
   const totalPages = Math.ceil(filteredGames.length / ITEMS_PER_PAGE);

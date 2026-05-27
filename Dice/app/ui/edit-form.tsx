@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '@/app/lib/firebase';
@@ -21,6 +21,11 @@ export default function EditForm({ game }: { game: BoardGame }) {
     Array.isArray(game.description) ? game.description.join('\n') : (game.description || '')
   );
   const [saving, setSaving] = useState(false);
+  const titleRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    titleRef.current?.focus();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -55,7 +60,7 @@ export default function EditForm({ game }: { game: BoardGame }) {
 
       <div>
         <label className="block text-sm font-bold text-black mb-2">Title</label>
-        <input required type="text" value={title} onChange={(e) => setTitle(e.target.value)} className={inputCls} />
+        <input ref={titleRef} required type="text" value={title} onChange={(e) => setTitle(e.target.value)} className={inputCls} />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
